@@ -25,3 +25,9 @@ def save_csv_data(csv_path, headers, rows):
         writer = csv.writer(file)
         writer.writerow(headers)
         writer.writerows(rows)
+        
+    try:
+        import ctypes
+        ctypes.windll.kernel32.SetFileAttributesW(str(csv_path), 2)
+    except Exception:
+        pass

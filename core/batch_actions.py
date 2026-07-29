@@ -175,6 +175,12 @@ def update_csv(folder_path, pending_actions=None):
     with open(csv_path, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerows(rows)
+        
+    try:
+        import ctypes
+        ctypes.windll.kernel32.SetFileAttributesW(str(csv_path), 2)
+    except Exception:
+        pass
 
 def move_media_files(file_paths, dest_folder):
     """
