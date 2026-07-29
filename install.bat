@@ -32,7 +32,7 @@ if errorlevel 1 (
 )
 
 if exist requirements.txt (
-    .venv\Scripts\pip install -r requirements.txt
+    .venv\Scripts\python -m pip install -r requirements.txt
     if errorlevel 1 (
         echo [ERRORE] Errore durante l'installazione delle dipendenze.
         pause
